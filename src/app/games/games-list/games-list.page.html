@@ -11,4 +11,20 @@
 
 <ion-content>
 
+  <ion-list>
+    <ion-list-header>Games Disponíveis</ion-list-header>
+  </ion-list>
+
+  <ion-item *ngFor="let game of games">
+    <ion-avatar slot="start">
+      <img [src]="game.foto"/>
+    </ion-avatar>
+    <ion-label>
+      <h2>{{game.nome}}</h2>
+      <h3>Gênero: {{game.genero}}</h3>
+      <h3>Preço: {{game.preco}}</h3>
+      <h4>Lançamento: {{game.lancamento}}</h4>
+    </ion-label>
+  </ion-item>
+
 </ion-content>
