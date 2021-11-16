@@ -15,7 +15,7 @@ export class GamesListPage implements OnInit {
       {
         nome: 'Rainbow Six:Siege',
         genero: Genero.FPS,
-        preco: 80.00,
+        preco: 80.99,
         lancamento: new Date(2015,11,20),
         foto: 'https://cdn1.epicgames.com/carnation/offer/r6s-y6-epic-std-store-landscape-2560x1440-2560x1440-ada4045f97c2-2560x1440-1a29dde6790c324f62bb12216e651944.jpeg'
       },
