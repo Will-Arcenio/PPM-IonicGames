@@ -9,6 +9,6 @@ export class AppComponent {
     { title: 'Lista de Games', url: '/games-list', icon: 'game-controller' },
     { title: 'Cadastro de Games', url: '/games-register', icon: 'duplicate' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+
   constructor() {}
 }

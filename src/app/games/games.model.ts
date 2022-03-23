@@ -1,19 +1,17 @@
-import { GenerateOptions } from "rxjs/internal/observable/generate";
-
 export interface Game {
-    nome: string;
-    genero: Genero;
-    preco: number;
-    lancamento: Date;
-    foto: string;
+  id: number;
+  nome: string;
+  genero: Genero;
+  preco: number;
+  lancamento: Date;
+  foto: string;
 }
 
-export enum Genero{
-    RPG       = 'RPG',
-    FPS       = 'FPS',
-    ESPORTES  = 'ESPORTES',
-    ARCADE    = 'ARCADE',
-    ACAO      = 'AÇÃO',
-    TABULEIRO = 'TABULEIRO',
-    PUZZLE    = 'PUZZLE'
+export enum Genero {
+  RPG = 'RPG',
+  FPS = 'FPS',
+  ESPORTES = 'ESPORTES',
+  ARCADE = 'ARCADE',
+  ACAO = 'ACAO',
+  PUZZLE = 'PUZZLE',
 }

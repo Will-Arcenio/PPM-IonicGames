@@ -3,48 +3,52 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+
     <ion-title>Cadastro de Games</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [formGroup]="form">
   <ion-item>
-    <ion-label position="floating">Nome</ion-label>
-    <ion-input type=text></ion-input>
+    <ion-label position="stacked">Nome: </ion-label>
+    <ion-input type="text" formControlName="nome"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Preço</ion-label>
-    <ion-input type=number></ion-input>
+    <ion-label position="stacked">Preço: </ion-label>
+    <ion-input type="number" formControlName="preco"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Lançamento</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" cancelText="Cancelar" doneText="Confirmar"></ion-datetime>
+    <ion-label position="stacked">Lançamento: </ion-label>
+    <ion-datetime
+      displayFormat="DD/MM/YYYY"
+      cancelText="Cancelar"
+      doneText="Selecionar"
+      formControlName="lancamento"
+    ></ion-datetime>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Gênero</ion-label>
-    <ion-select>
+    <ion-label position="stacked">Gênero: </ion-label>
+    <ion-select formControlName="genero">
       <ion-select-option value="RPG">RPG</ion-select-option>
       <ion-select-option value="FPS">FPS</ion-select-option>
       <ion-select-option value="ESPORTES">Esportes</ion-select-option>
       <ion-select-option value="ARCADE">Arcade</ion-select-option>
       <ion-select-option value="ACAO">Ação</ion-select-option>
-      <ion-select-option value="TABULEIRO">Tabuleiro</ion-select-option>
-      <ion-select-option value="PUZZLE">Puzzle</ion-select-option>
+      <ion-select-option value="PUZZLE">Quebra-cabeças</ion-select-option>
     </ion-select>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Logo (URL)</ion-label>
-    <ion-input type="url"></ion-input>
+    <ion-label position="stacked">Foto (URL): </ion-label>
+    <ion-input type="url" formControlName="foto"></ion-input>
   </ion-item>
 
   <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button>
-      <ion-icon name="checkmark-outline" slot="icon-only"></ion-icon>
+    <ion-fab-button (click)="salvar()" [disabled]="!form.valid">
+      <ion-icon name="checkmark-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>
