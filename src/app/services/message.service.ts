@@ -15,7 +15,6 @@ export class MessageService {
     const toast = await this.toastController.create({
       message : msg,
       color: "danger",
-      duration: 4000,
       buttons: [
         {
           icon: "refresh-outline",
