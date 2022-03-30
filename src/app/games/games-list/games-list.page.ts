@@ -1,6 +1,6 @@
 import { GamesApiService } from './../games-api.service';
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, ToastController, ViewWillEnter } from '@ionic/angular';
 import { Game } from '../games.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { Game } from '../games.model';
   templateUrl: './games-list.page.html',
   styleUrls: ['./games-list.page.scss'],
 })
-export class GamesListPage implements OnInit {
+export class GamesListPage implements OnInit, ViewWillEnter {
   games: Game[];
 
   constructor(
@@ -23,10 +23,14 @@ export class GamesListPage implements OnInit {
     this.listGames();
   }
 
+  ionViewWillEnter(): void {
+    this.listGames();
+  }
+
   listGames() {
     this.gamesApiService.getGames().subscribe(
       (games) => this.games = games,
-      () => this.showMessage("Erro ao carregar a lista de jogos.", () => this.listGames())
+      () => this.showMessage('Erro ao carregar a lista de jogos.', () => this.listGames())
     );
   }
 
@@ -51,7 +55,7 @@ export class GamesListPage implements OnInit {
   remove(game: Game) {
     this.gamesApiService.removeGame(game.id).subscribe(
       () => this.listGames(),  //  OOUUU     this.games.filter(g => g.id !== game.id)
-      () => this.showMessage("Erro ao excluir o jogo.", () => this.remove(game))
+      () => this.showMessage('Erro ao excluir o jogo.', () => this.remove(game))
     );
   }
 

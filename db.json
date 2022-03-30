@@ -47,6 +47,22 @@
       "preco": 10,
       "lancamento": "2022-03-15",
       "foto": "https://www.nonatoluiz.com.br/wp-content/uploads/2021/11/teste.png"
+    },
+    {
+      "id": 7,
+      "nome": "Project Zomboid",
+      "preco": 40,
+      "lancamento": "2004-03-29T20:05:47.686-03:00",
+      "genero": "ACAO",
+      "foto": "https://cdn.akamai.steamstatic.com/steam/apps/108600/header.jpg?t=1644611871"
+    },
+    {
+      "id": 8,
+      "nome": "Rainbow Six: Siege",
+      "preco": 80,
+      "lancamento": "2015-11-26T21:02:09.612-02:00",
+      "genero": "FPS",
+      "foto": "https://cdn1.epicgames.com/carnation/offer/r6s-y6-epic-std-store-landscape-2560x1440-2560x1440-ada4045f97c2-2560x1440-1a29dde6790c324f62bb12216e651944.jpeg"
     }
   ]
 }

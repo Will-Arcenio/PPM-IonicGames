@@ -9,8 +9,6 @@ import { Game } from './games.model';
 })
 export class GamesApiService {
 
-
-
   constructor(
     private httpCliente: HttpClient,
   ) { }
@@ -21,5 +19,13 @@ export class GamesApiService {
 
   removeGame(id: number) {
     return this.httpCliente.delete<void>(`${environment.apiUrl}/games/${id}`);
+  }
+
+  findById(id: number) {
+    return this.httpCliente.get<Game>(`${environment.apiUrl}/games/${id}`);
+  }
+
+  save(game: Game): Observable<Game> {
+    return this.httpCliente.post<Game>(`${environment.apiUrl}/games`, game);
   }
 }

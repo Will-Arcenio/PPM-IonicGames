@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Game, Genero } from './games.model';
+import { Game } from './games.model';
 
 @Injectable({
   providedIn: 'root',
