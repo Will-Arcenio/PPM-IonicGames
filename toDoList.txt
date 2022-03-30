@@ -1,0 +1,3 @@
+- Mensagem de Sucesso;
+- Games Favoritos (usando LocalStorage);
+- Padrão Classe/Interface (DTO);
