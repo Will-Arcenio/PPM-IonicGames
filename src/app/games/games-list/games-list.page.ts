@@ -11,6 +11,7 @@ import { MessageService } from '../../services/message.service';
 })
 export class GamesListPage implements OnInit, ViewWillEnter {
   games: Game[];
+  loading = false;
 
   constructor(
     private alertController: AlertController,
@@ -29,9 +30,16 @@ export class GamesListPage implements OnInit, ViewWillEnter {
   }
 
   listGames() {
+    this.loading = true;
     this.gamesApiService.getGames().subscribe(
-      (games) => this.games = games,
-      () => this.messageService.showMessage('Erro ao carregar a lista de jogos.', () => this.listGames())
+      (games) => {
+        this.games = games;
+        //this.loading = false;
+      },
+      () => {
+        this.messageService.showMessage('Erro ao carregar a lista de jogos.', () => this.listGames());
+        this.loading = false;
+      }
     );
   }
 
