@@ -1,8 +1,10 @@
 import { GamesApiService } from './../games-api.service';
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ToastController, ViewWillEnter } from '@ionic/angular';
+import { AlertController, IonItemSliding, ToastController, ViewWillEnter } from '@ionic/angular';
 import { Game } from '../games.model';
 import { MessageService } from '../../services/message.service';
+import { finalize } from 'rxjs/operators';
+import { GamesWishListService } from '../games-wish-list.service';
 
 @Component({
   selector: 'app-games-list',
@@ -17,6 +19,7 @@ export class GamesListPage implements OnInit, ViewWillEnter {
     private alertController: AlertController,
     private gamesApiService: GamesApiService,
     private messageService: MessageService,
+    private gamesWishListService: GamesWishListService
   ) {
     this.games = [];
   }
@@ -31,14 +34,12 @@ export class GamesListPage implements OnInit, ViewWillEnter {
 
   listGames() {
     this.loading = true;
-    this.gamesApiService.getGames().subscribe(
+    this.gamesApiService.getGames().pipe(finalize(() => this.loading = false)).subscribe(
       (games) => {
         this.games = games;
-        //this.loading = false;
       },
       () => {
         this.messageService.showMessage('Erro ao carregar a lista de jogos.', () => this.listGames());
-        this.loading = false;
       }
     );
   }
@@ -62,9 +63,24 @@ export class GamesListPage implements OnInit, ViewWillEnter {
   }
 
   remove(game: Game) {
+    this.loading = true;
     this.gamesApiService.removeGame(game.id).subscribe(
-      () => this.listGames(),  //  OOUUU     this.games.filter(g => g.id !== game.id)
-      () => this.messageService.showMessage('Erro ao excluir o jogo.', () => this.remove(game))
+      () => {
+        this.messageService.success(`Jogo ${game.nome} removido com sucesso.`);
+        this.listGames();  //  OOUUU     this.games.filter(g => g.id !== game.id)
+      },
+      () => {
+        this.messageService.showMessage('Erro ao excluir o jogo.', () => this.remove(game));
+        this.loading = false;
+      }
     );
+  }
+
+  addWishList(game: Game) {
+    this.gamesWishListService.addGameOnWishList(game);
+  }
+
+  closeSliding(sliding: IonItemSliding) {
+    sliding.close();
   }
 }

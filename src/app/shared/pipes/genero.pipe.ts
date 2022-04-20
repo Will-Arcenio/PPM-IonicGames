@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Genero } from './games.model';
+import { Genero } from '../../games/games.model';
 
 @Pipe({
   name: 'genero'
@@ -7,7 +7,7 @@ import { Genero } from './games.model';
 export class GeneroPipe implements PipeTransform {
 
   transform(value: Genero): string {
-    
+
     switch (value) {
       case Genero.ACAO:
         return 'Ação';

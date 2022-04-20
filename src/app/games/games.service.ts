@@ -10,7 +10,7 @@ export class GamesService {
   private contador = 1;
 
   constructor() {
-    this.games = JSON.parse(localStorage.getItem("games")) ?? [];
+    this.games = JSON.parse(localStorage.getItem('games')) ?? [];
   }
 
   public getGames() {

@@ -1,3 +1,6 @@
 - Mensagem de Sucesso;
 - Games Favoritos (usando LocalStorage);
 - Padrão Classe/Interface (DTO);
+- Cadastro de Gênero dos Jogos;
+- Incluir 'Busy Loaders' no projeto;
+- Exibir mensagem nas validações dos Formulários

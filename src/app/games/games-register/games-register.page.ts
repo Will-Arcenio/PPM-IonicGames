@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { GamesApiService } from '../games-api.service';
 import { Genero } from '../games.model';
 import { MessageService } from '../../services/message.service';
+import { finalize } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-games-register',
@@ -13,6 +15,7 @@ import { MessageService } from '../../services/message.service';
 })
 export class GamesRegisterPage implements OnInit{
   form: FormGroup;
+  loading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,7 +42,11 @@ export class GamesRegisterPage implements OnInit{
   }
 
   findById(id: number) {
-    this.gamesApiService.findById(id).subscribe(
+    this.loading = true;
+    this.gamesApiService.findById(id)
+    .pipe(finalize(() => this.loading = false)
+    )
+    .subscribe(
       (game) => {
         if(game) {
           this.form.patchValue({
@@ -55,8 +62,13 @@ export class GamesRegisterPage implements OnInit{
     // const nome = this.form.value.nome;
     const { nome } = this.form.value;
 
-    this.gamesApiService.save(this.form.value).subscribe(
-      () => this.router.navigate(['games-list']),
+    this.loading = true;
+
+    this.gamesApiService.save(this.form.value).pipe(finalize(() => this.loading = false)).subscribe(
+      () => {
+        this.messageService.success(`Jogo '${nome}' adicionado com sucesso.`);
+        this.router.navigate(['games-list']);
+      },
       () => this.messageService.showMessage(`Erro ao salvar o jogo '${nome}'.`, () => this.salvar())
     );
   }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { ToastButton, ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -10,22 +10,37 @@ export class MessageService {
     private toastController: ToastController
   ) { }
 
-  // É o onFail() do professor
-  async showMessage(msg: string, handler: () => void) {
+  async success(message: string) {
     const toast = await this.toastController.create({
-      message : msg,
-      color: "danger",
-      buttons: [
+      message,
+      color: 'success',
+      position: 'top',
+      duration: 5000,
+    });
+
+    toast.present();
+  }
+
+  // É o onFail() do professor
+  async showMessage(msg: string, handler?: () => void) {
+    let buttons: ToastButton[] = [{ side: 'end', icon: 'close-outline' }];
+
+    if(handler){
+      buttons = [
+        ...buttons,
         {
-          icon: "refresh-outline",
-          side: "start",
+          icon: 'refresh-outline',
+          side: 'start',
           handler: () => handler(),
-        },
-        {
-          side: "end",
-          icon: "close-outline"
         }
       ]
+    }
+
+    const toast = await this.toastController.create({
+      message : msg,
+      color: 'danger',
+      position: 'top',
+      buttons,
     });
     toast.present();
   }

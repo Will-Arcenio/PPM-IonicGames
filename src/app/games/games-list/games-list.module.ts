@@ -1,21 +1,20 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
 
+import { SharedModule } from '../../shared/shared.module';
 import { GamesListPageRoutingModule } from './games-list-routing.module';
-
 import { GamesListPage } from './games-list.page';
-import { GeneroPipe } from './genero.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GamesListPageRoutingModule
+    GamesListPageRoutingModule,
+    SharedModule
   ],
-  declarations: [GamesListPage, GeneroPipe]
+  declarations: [GamesListPage]
 })
 export class GamesListPageModule {}

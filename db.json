@@ -9,28 +9,12 @@
       "foto": "https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec"
     },
     {
-      "id": 2,
-      "nome": "CS:GO",
-      "genero": "FPS",
-      "lancamento": "2022-03-15",
-      "preco": 29.9,
-      "foto": "https://th.bing.com/th/id/OIP.SWYgOJ8CrbBMQuP4-jHeigHaEK?w=310&h=180&c=7&r=0&o=5&pid=1.7"
-    },
-    {
       "id": 3,
       "nome": "FIFA 22",
       "genero": "ESPORTES",
       "preco": 299.9,
       "lancamento": "2022-03-15",
       "foto": "https://m.media-amazon.com/images/I/810V2t+RstL._AC_SL1500_.jpg"
-    },
-    {
-      "id": 4,
-      "nome": "Forza Horizon 5",
-      "genero": "ESPORTES",
-      "preco": 250,
-      "lancamento": "2022-03-15",
-      "foto": "https://s2.glbimg.com/jwTCUqqOoS7jkdFAezibkgZmY4g=/0x0:695x390/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/Z/n/tpIAmwRQqFnoBG0xkTUg/forza-horizon-5-tudo-sobre-gameplay-requisitos-acessibilidade-praia.jpg"
     },
     {
       "id": 5,
@@ -63,6 +47,36 @@
       "lancamento": "2015-11-26T21:02:09.612-02:00",
       "genero": "FPS",
       "foto": "https://cdn1.epicgames.com/carnation/offer/r6s-y6-epic-std-store-landscape-2560x1440-2560x1440-ada4045f97c2-2560x1440-1a29dde6790c324f62bb12216e651944.jpeg"
+    },
+    {
+      "id": 9,
+      "nome": "Valorant",
+      "preco": 0,
+      "lancamento": "2021-04-12T19:32:11.309-03:00",
+      "genero": "FPS",
+      "foto": "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blta7a40fb9d8bc8653/61d4af200d81d913d2ac70e3/VALORANT_Ep4_A1_Social_Updates_NeonContent_Stack_Thumbnail.png"
+    }
+  ],
+  "platforms": [
+    {
+      "id": 1,
+      "description": "Playstation",
+      "logo": "https://i.pinimg.com/originals/79/5f/11/795f11fed817bee6876f0a310e67e4bf.png"
+    },
+    {
+      "id": 2,
+      "description": "Xbox",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Xbox_logo_%282019%29.svg/1200px-Xbox_logo_%282019%29.svg.png"
+    },
+    {
+      "description": "Nintendo Wii",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Wii-Console.png/1200px-Wii-Console.png",
+      "id": 3
+    },
+    {
+      "description": "PC",
+      "logo": "https://images-americanas.b2w.io/produtos/2973352707/imagens/pc-completo-gamer-promocao-30-jogos-promocao/2973352715_1_large.jpg",
+      "id": 4
     }
   ]
 }
